@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrainBoost | Neuroscience Quizzes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">B</span>
+        <span>BrainBoost</span>
+      </a>
+      <div class="nav-links">
+        <a href="#quizzes">Quizzes</a>
+        <a href="#mission">Mission</a>
+        <a href="#stats">Stats</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Student-built neuroscience challenge platform</p>
+        <h1>Test your brain. Learn how it works.</h1>
+        <p class="hero-text">
+          BrainBoost turns neuroscience into short interactive assessments about sleep,
+          dopamine, memory, stress, and learning. Each quiz has 10 questions with instant explanations.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#quizzes">Take a quiz</a>
+          <a class="button secondary" href="#mission">What is this?</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <p class="small-label">Total quiz attempts</p>
+        <div class="big-number" id="totalAttempts">0</div>
+        <p class="muted">Local demo counter. Connect Firebase later for a real public counter.</p>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section id="stats" class="section stats-grid">
+      <div class="stat">
+        <span id="quizCount">0</span>
+        <p>Available quizzes</p>
+      </div>
+      <div class="stat">
+        <span id="completedCount">0</span>
+        <p>Completed on this device</p>
+      </div>
+      <div class="stat">
+        <span id="bestScore">—</span>
+        <p>Best score</p>
+      </div>
+    </section>
+
+    <section id="quizzes" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Start here</p>
+        <h2>Neuroscience quiz library</h2>
+        <p class="section-text">
+          Each test asks for an email before starting. This version has 10 questions per quiz,
+          answer explanations, per-quiz attempt counts, and total attempt tracking.
+        </p>
+      </div>
+      <div class="quiz-grid" id="quizGrid"></div>
+    </section>
+
+    <section id="mission" class="section mission">
+      <div>
+        <p class="eyebrow">The point</p>
+        <h2>Not just a website. A measurable project.</h2>
+      </div>
+      <p>
+        The site is the shell. The real value is distribution: students taking the quizzes,
+        schools sharing them, and data proving growth. Publish one new quiz every 3 days,
+        then track attempts and emails with a real backend when you launch publicly.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>BrainBoost © 2026 · Student-built neuroscience education.</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

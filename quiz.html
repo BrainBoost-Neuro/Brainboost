@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrainBoost Quiz</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="compact-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">B</span>
+        <span>BrainBoost</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#quizzes">All quizzes</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="quiz-page">
+    <section id="emailGate" class="panel">
+      <p class="eyebrow">Before you begin</p>
+      <h1 id="gateTitle">Quiz</h1>
+      <p class="section-text">
+        Enter your email to start. This demo saves attempts only in your browser.
+        For a public version where you can see who took the test, connect Firebase or Google Sheets.
+      </p>
+      <div class="form-row">
+        <input id="emailInput" type="email" placeholder="your@email.com" autocomplete="email" />
+        <button class="button primary" id="startBtn">Start quiz</button>
+      </div>
+      <p class="error" id="emailError"></p>
+    </section>
+
+    <section id="quizPanel" class="panel hidden">
+      <div class="quiz-top">
+        <div>
+          <p class="eyebrow" id="quizCategory">Neuroscience</p>
+          <h1 id="quizTitle">Quiz</h1>
+        </div>
+        <div class="progress-pill"><span id="currentQuestion">1</span>/<span id="totalQuestions">10</span></div>
+      </div>
+
+      <div class="progress-bar">
+        <div id="progressFill"></div>
+      </div>
+
+      <h2 id="questionText"></h2>
+      <div id="answers" class="answers"></div>
+      <button class="button secondary hidden" id="nextBtn">Next</button>
+    </section>
+
+    <section id="resultPanel" class="panel hidden result-panel">
+      <p class="eyebrow">Result</p>
+      <h1>Your score</h1>
+      <div class="result-score"><span id="scoreNumber">0</span>%</div>
+      <p id="resultMessage" class="section-text"></p>
+      <div id="reviewBox" class="review-box"></div>
+      <div class="hero-actions">
+        <a class="button primary" href="index.html#quizzes">Back to quizzes</a>
+        <button class="button secondary" id="retakeBtn">Retake</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="quiz.js"></script>
+</body>
+</html>
