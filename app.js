@@ -12,15 +12,21 @@ function quizAttempts(id) {
 }
 
 function renderHome() {
-  setText("totalAttempts", getNum("totalAttempts"));
-  setText("quizCount", QUIZZES.length);
+  setText("totalAttempts", "Loading...");
+setText("quizCount", QUIZZES.length);
 
-  const completed = QUIZZES.reduce((sum, quiz) => sum + quizAttempts(quiz.id), 0);
-  setText("completedCount", completed);
+if (window.db && window.collection && window.getDocs) {
+  window.getDocs(window.collection(window.db, "attempts")).then(snapshot => {
+    const attempts = snapshot.docs.map(doc => doc.data());
+    const total = attempts.length;
+    const emails = new Set(attempts.map(a => a.email).filter(Boolean));
+    const avg = total ? Math.round(attempts.reduce((sum, a) => sum + Number(a.score || 0), 0) / total) : 0;
 
-  const scores = QUIZZES.map(q => getNum(`best_${q.id}`)).filter(n => n > 0);
-  setText("bestScore", scores.length ? `${Math.max(...scores)}%` : "—");
-
+    setText("totalAttempts", total);
+    setText("completedCount", total);
+    setText("bestScore", total ? `${avg}% avg` : "—");
+  });
+}
   const grid = document.getElementById("quizGrid");
   if (!grid) return;
 
