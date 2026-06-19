@@ -1,4 +1,5 @@
 import { db, collection, getDocs } from "./firebase.js";
+
 function getNum(key) {
   return parseInt(localStorage.getItem(key) || "0", 10);
 }
