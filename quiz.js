@@ -102,8 +102,7 @@ function getNum(key) {
   return parseInt(localStorage.getItem(key) || "0", 10);
 }
 
-function finishQuiz() {
-  const percentage = Math.round((score / quiz.questions.length) * 100);
+
 function finishQuiz() {
   const percentage = Math.round((score / quiz.questions.length) * 100);
 
@@ -112,7 +111,6 @@ function finishQuiz() {
   localStorage.setItem(`best_${quiz.id}`, Math.max(getNum(`best_${quiz.id}`), percentage));
 
   if (window.db && window.addDoc && window.collection) {
-if (window.db && window.addDoc && window.collection) {
   window.addDoc(window.collection(window.db, "attempts"), {
     quiz: quiz.title,
     quizId: quiz.id,
