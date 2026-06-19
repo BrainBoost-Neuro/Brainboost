@@ -105,9 +105,13 @@ function getNum(key) {
 function finishQuiz() {
   const percentage = Math.round((score / quiz.questions.length) * 100);
 
-  localStorage.setItem("totalAttempts", getNum("totalAttempts") + 1);
-  localStorage.setItem(`attempts_${quiz.id}`, getNum(`attempts_${quiz.id}`) + 1);
-  localStorage.setItem(`best_${quiz.id}`, Math.max(getNum(`best_${quiz.id}`), percentage));
+ db.collection("attempts").add({
+  quiz: quiz.title,
+  quizId: quiz.id,
+  email: email,
+  score: percentage,
+  date: new Date().toISOString()
+});
 
   const history = JSON.parse(localStorage.getItem("attemptHistory") || "[]");
   history.push({
