@@ -43,7 +43,7 @@ function renderHome() {
       <p>${quiz.description}</p>
       <div class="quiz-meta">
         <span>${quiz.questions.length} questions</span>
-        <span>${quizAttempts(quiz.id)} attempts</span>
+       <span>${attempts.filter(a => a.quizId === quiz.id).length} attempts</span>
       </div>
       <a class="button primary full" href="quiz.html?id=${quiz.id}">Start test</a>
     </article>
